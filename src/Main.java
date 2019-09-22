@@ -5,7 +5,7 @@ public class Main {
 		StackOverflowUsers users = new StackOverflowUsers();
 		HTTPConnection httpConnections = new HTTPConnection();
 		users.setItems(httpConnections.ReadAllUsers());
-		users.SaveUsers(users.getItems(), "UsersFromMDAndRO.txt");
+		users.SaveUsers(users.getItems(), "AllUsers.txt");
 		users.filterTheUsersByLocation(users.getItems());
 		httpConnections.CompleteTagsList(users.getItems());
 		users.filterTheUsersByTags(users.getItems());

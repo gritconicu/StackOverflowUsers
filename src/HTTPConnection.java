@@ -76,7 +76,7 @@ public class HTTPConnection {
 				Gson gson = new Gson();
 				StackOverflowUsers us = gson.fromJson(stringToParse, StackOverflowUsers.class);
 				users.addAll(us.getItems());
-				if (i == 200/* !us.isHas_more() */) {
+				if (!us.isHas_more()) {
 					break;
 				}
 
