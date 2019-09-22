@@ -5,14 +5,13 @@ import java.util.List;
 public class StackOverflowUsers {
 
 	private List<StackOverflowUser> items;
+	private boolean has_more;
+	private int quota_max;
+	private int quota_remaining;
 
 	public void setItems(List<StackOverflowUser> items) {
 		this.items = items;
 	}
-
-	private boolean has_more;
-	private int quota_max;
-	private int quota_remaining;
 
 	public List<StackOverflowUser> getItems() {
 		return items;
@@ -38,9 +37,9 @@ public class StackOverflowUsers {
 		for (int i = 0; i < users.size(); i++) {
 			// All users that not contain needed location and tags are deleted from linked
 			// list
-			if (users.get(i).getLocation() != null) {
-				if (!(users.get(i).getLocation().contains("Moldova"))
-						&& !(users.get(i).getLocation().contains("Romania"))) {
+			var location = users.get(i).getLocation();
+			if (location != null) {
+				if (!(location.contains("Moldova")) && !(location.contains("Romania"))) {
 					users.remove(i);
 					i--;
 				} else if (users.get(i).getAnswer_count() == 0) {
@@ -51,7 +50,6 @@ public class StackOverflowUsers {
 				users.remove(i);
 				i--;
 			}
-
 
 		}
 
@@ -64,10 +62,9 @@ public class StackOverflowUsers {
 		}
 
 		for (int i = 0; i < users.size(); i++) {
-
-			if (users.get(i).getTags() != null) {
-				if (users.get(i).getTags().contains("java") || users.get(i).getTags().contains(".net")
-						|| users.get(i).getTags().contains("docker") || users.get(i).getTags().contains("c#")) {
+			var tags = users.get(i).getTags();
+			if (tags != null) {
+				if (tags.contains("java") || tags.contains(".net") || tags.contains("docker") || tags.contains("c#")) {
 					continue;
 				} else {
 					users.remove(i);

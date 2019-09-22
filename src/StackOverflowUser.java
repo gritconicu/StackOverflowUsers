@@ -1,5 +1,14 @@
 public class StackOverflowUser {
 	private int account_id;
+	private int reputation;
+	private int user_id;
+	private int answer_count;
+	private int question_count;
+	private String location;
+	private String link;
+	private String profile_image;
+	private String display_name;
+	private String tags;
 
 	public int getAccount_id() {
 		return account_id;
@@ -45,17 +54,6 @@ public class StackOverflowUser {
 		this.tags = tags;
 	}
 
-	private int reputation;
-	private int user_id;
-	private int answer_count;
-	private int question_count;
-	private String location;
-	private String link;
-	private String profile_image;
-	private String display_name;
-	private String tags;
-
-	
 	@Override
 	public String toString() {
 		return String.format(

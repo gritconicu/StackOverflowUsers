@@ -15,19 +15,23 @@ public class HTTPConnection {
 	private final static String KEY = "ZSvhNIiWym373P5sUT588Q((";
 	private static int NumberOfRequests;
 
-	public HTTPConnection() {
-
-	}
-
-	public static int getNumberOfConnections() {
+	public static int getNumberOfRequests() {
 		return NumberOfRequests;
 	}
 
-	public void setNumberOfConnections(int numberOfRequests) {
+
+
+	public static void setNumberOfRequests(int numberOfRequests) {
 		NumberOfRequests = numberOfRequests;
 	}
 
-	private static String sendGet(URL url) throws Exception {
+
+
+	public HTTPConnection() {
+
+	}
+	
+	private  String sendGet(URL url) throws Exception {
 		NumberOfRequests++;
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		/* Connection properties */
